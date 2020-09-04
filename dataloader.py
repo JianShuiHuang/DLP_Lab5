@@ -37,7 +37,7 @@ class DataLoader(data.Dataset):
             for item in self.data[index][1]:
                 objects.append(self.obj_dict[item])
 
-            img = np.array(Image.open('./iclevr/'+img_name))[...,:-1]
+            img = np.array(Image.open('./lab5_dataset/iclevr/'+img_name))[...,:-1]
             img = self.transformation(Image.fromarray(img))
             
             condition = torch.zeros(24)
