@@ -12,7 +12,7 @@ image_size = 64
 lr_G = 0.0002
 lr_D = 0.0001
 batch_size = 64
-num_epochs = 1
+num_epochs = 1000
 input_size_g = 124
 hidden_size_g = 64
 output_size_g = 3
@@ -38,4 +38,4 @@ accuracy = training(generator, discriminator, image_size, latent_size, lr_G, lr_
 
 print("Time: ", timeSince(start, 1 / 100))
 
-print("Max Accuracy: ", max)
+print("Max Accuracy: ", max(accuracy))
