@@ -101,6 +101,7 @@ def training(generator, discriminator, image_size, latent_size, lr_g, lr_d, batc
 
     np.save("GLoss.npy", g_loss)
     np.save("DLoss.npy", d_loss)
+    np.save("Accuracy", accuracy_list)
     return accuracy_list
 
 def testing(generator, noise=None, latent_size=100, batch_size=32):
