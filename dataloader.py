@@ -46,7 +46,7 @@ class DataLoader(data.Dataset):
             data = (img, condition)
         else:
             objects = []
-            for item in self.data[index][1]:
+            for item in self.data[index]:
                 objects.append(self.obj_dict[item])
             condition = torch.zeros(24)
             data = torch.tensor([v+1 if i in objects else v for i,v in enumerate(condition)])
