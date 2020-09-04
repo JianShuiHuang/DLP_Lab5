@@ -85,13 +85,13 @@ def training(generator, discriminator, image_size, latent_size, lr_g, lr_d, batc
         # store model and print information
         accuracy,_ = testing(generator, fixed_noise, latent_size, batch_size)
         accuracy_list.append(accuracy)
-        if accuracy>max(accuracy_list) :
+        if accuracy>=max(accuracy_list) :
             print ("Model save...")
             torch.save(generator, "generator.pkl")
             torch.save(discriminator, "discriminator.pkl")
             
         if epoch % 1 == 0:
-            print(' (%d %d%%) Accuracy: %.4f Loss_D: %.4f Loss_G: %.4f'
+            print('(%d %d%%) Accuracy: %.4f Loss_D: %.4f Loss_G: %.4f'
                             % (epoch, epoch/num_epochs * 100, accuracy, errD.item(), errG.item()))
         
         g_loss.append(errG.item())
