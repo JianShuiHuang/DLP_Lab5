@@ -92,7 +92,7 @@ def training(generator, discriminator, image_size, latent_size, lr_g, lr_d, batc
             
         if epoch % 1 == 0:
             print(' (%d %d%%) Accuracy: %.4f Loss_D: %.4f Loss_G: %.4f'
-                            , epoch, epoch/num_epochs * 100, accuracy, errD.item(), errG.item())
+                            % (epoch, epoch/num_epochs * 100, accuracy, errD.item(), errG.item()))
         
         g_loss.append(errG.item())
         d_loss.append(errD.item())
