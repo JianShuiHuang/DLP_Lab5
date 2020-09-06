@@ -40,8 +40,8 @@ class DataLoader(data.Dataset):
             img = Image.open('./lab5_dataset/iclevr/'+img_name)
             img = img.resize((64, 64),Image.ANTIALIAS)
             img = np.asarray(img)/255
-            img = np.transpose(img_np, (2,0,1))
-            img = torch.from_numpy(img_np)
+            img = np.transpose(img, (2,0,1))
+            img = torch.from_numpy(img)
             
             
             
