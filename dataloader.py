@@ -26,7 +26,6 @@ class DataLoader(data.Dataset):
         self.mode = mode   
         self.data = get_data(mode)
         self.dict = dictionary()
-        self.image_size = image_size
         
     def __len__(self):
         return len(self.data)
@@ -38,8 +37,11 @@ class DataLoader(data.Dataset):
             for item in self.data[index][1]:
                 objects.append(self.dict[item])
 
-            img = np.array(Image.open('./lab5_dataset/iclevr/'+img_name))[...,:-1]
-            img = Image.fromarray(img)
+            img = Image.open('./lab5_dataset/iclevr/'+img_name)
+            img = img.resize((64, 64),Image.ANTIALIAS)
+            img = np.asarray(img)/255
+            img = np.transpose(img_np, (2,0,1))
+            img = torch.from_numpy(img_np)
             
             
             
