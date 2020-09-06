@@ -14,7 +14,9 @@ def get_data(mode):
         for item in data.items():
             Data.append(item)
 
-    return np.squeeze(Data)
+        return np.squeeze(Data)
+    else:
+        return data
 
 def dictionary():
     return json.load(open('./lab5_dataset/objects.json', 'r'))
