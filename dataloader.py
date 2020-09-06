@@ -43,7 +43,7 @@ class DataLoader(data.Dataset):
             img = transforms.Resize(self.image_size)
             img = transforms.CenterCrop(self.image_size)
             img = transforms.ToTensor()
-            img = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+            img = img / 255
             
             
             condition = torch.zeros(24)
