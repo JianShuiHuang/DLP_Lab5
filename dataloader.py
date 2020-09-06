@@ -39,7 +39,6 @@ class DataLoader(data.Dataset):
                 objects.append(self.dict[item])
 
             img = np.array(Image.open('./lab5_dataset/iclevr/'+img_name))[...,:-1]
-            img = img / 255
             img = Image.fromarray(img)
             img = transforms.Resize(self.image_size)
             img = transforms.CenterCrop(self.image_size)
