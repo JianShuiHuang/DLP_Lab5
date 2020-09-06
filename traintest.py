@@ -38,9 +38,7 @@ def training(generator, discriminator, image_size, latent_size, lr_g, lr_d, batc
     # init Loss & optimizer
     Loss = nn.BCELoss()
     optimizer_d = optim.Adam(discriminator.parameters(), lr=lr_d, betas=(2e-4, 0.999))
-    scheduler_d = StepLR(optimizer_d, step_size=50, gamma=0.5)
     optimizer_g = optim.Adam(generator.parameters(), lr=lr_g, betas=(2e-4, 0.999))
-    scheduler_g = StepLR(optimizer_g, step_size=80, gamma=0.5)
 
     # init fixed noise
     fixed_noise = torch.randn(32, latent_size, 1, 1, device=device)
@@ -83,9 +81,6 @@ def training(generator, discriminator, image_size, latent_size, lr_g, lr_d, batc
             errG.backward()
             
             optimizer_g.step()
-        
-        scheduler_g.step()
-        scheduler_d.step()
 
         # store model and print information
         accuracy,_ = testing(generator, fixed_noise, latent_size, batch_size)
