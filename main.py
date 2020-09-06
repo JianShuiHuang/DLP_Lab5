@@ -48,7 +48,7 @@ output_size_d = 1
 latent_size = 100
 
 
-manualSeed = 999
+manualSeed = 66
 random.seed(manualSeed)
 torch.manual_seed(manualSeed)
 
@@ -63,7 +63,7 @@ start = time.time()
 
 accuracy = training(generator, discriminator, image_size, latent_size, lr_G, lr_D, batch_size, num_epochs)
 
-print("Time: ", timeSince(start, 1 / 100))
+print("Time: ", timeSince(start))
 
 print("Max Accuracy: ", max(accuracy))
 
