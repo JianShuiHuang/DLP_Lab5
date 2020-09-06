@@ -39,6 +39,8 @@ class DataLoader(data.Dataset):
 
             img = np.array(Image.open('./lab5_dataset/iclevr/'+img_name))[...,:-1]
             img = Image.fromarray(img)
+            img = transforms.Resize(image_size)
+            img = transforms.CenterCrop(image_size)
             img = transforms.ToTensor()
             img = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
             
