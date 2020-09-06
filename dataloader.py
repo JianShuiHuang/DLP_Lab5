@@ -26,6 +26,7 @@ class DataLoader(data.Dataset):
         self.mode = mode   
         self.data = get_data(mode)
         self.dict = dictionary()
+        self.image_size = image_size
         
     def __len__(self):
         return len(self.data)
@@ -39,8 +40,8 @@ class DataLoader(data.Dataset):
 
             img = np.array(Image.open('./lab5_dataset/iclevr/'+img_name))[...,:-1]
             img = Image.fromarray(img)
-            img = transforms.Resize(image_size)
-            img = transforms.CenterCrop(image_size)
+            img = transforms.Resize(self.image_size)
+            img = transforms.CenterCrop(self.image_size)
             img = transforms.ToTensor()
             img = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
             
